@@ -1,0 +1,13 @@
+name: Bandit Scan
+
+on: [push, pull_request]
+
+jobs:
+  bandit-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Bandit
+        uses: pyupio/action-bandit@v1.0.0
+        with:
+          args: -r .
